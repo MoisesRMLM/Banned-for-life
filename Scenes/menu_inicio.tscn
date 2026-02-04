@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dr2exdbp6ks0e"]
+
+[ext_resource type="Script" uid="uid://dbt0dabj8gxa" path="res://Scripts/menu_inicio.gd" id="1_ryjsk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4h5l"]
+bg_color = Color(0.3517211, 0.5759214, 0.2105864, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryjsk"]
+bg_color = Color(0.1882353, 0.3137255, 0.72156864, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8kkd"]
+bg_color = Color(0.8087044, 0.22503302, 0.19099355, 1)
+
+[node name="MenuInicio" type="Control" unique_id=701919085]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ryjsk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1509703726]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5786194, 0.5910722, 0.7167126, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1716902854]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -38.0
+offset_right = 177.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="BotonJugar" type="Button" parent="ColorRect/VBoxContainer" unique_id=2001205823]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_a4h5l")
+text = "JUGAR"
+
+[node name="BotonOpciones" type="Button" parent="ColorRect/VBoxContainer" unique_id=581071996]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryjsk")
+text = "OPCIONES"
+
+[node name="BotonSalir" type="Button" parent="ColorRect/VBoxContainer" unique_id=2138667124]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_h8kkd")
+text = "SALIR"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/BotonJugar" to="." method="_on_boton_jugar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/BotonOpciones" to="." method="_on_boton_opciones_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/BotonSalir" to="." method="_on_boton_salir_pressed"]

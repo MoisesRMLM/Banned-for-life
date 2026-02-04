@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b2rt4cqlrms88"]
+
+[ext_resource type="Script" uid="uid://b1g3ksk450u7f" path="res://Scripts/camera_2d.gd" id="1_euybs"]
+[ext_resource type="Texture2D" uid="uid://kcag1ctwyaw1" path="res://Assets/Floor_Lvl1.png" id="1_kbscr"]
+[ext_resource type="PackedScene" uid="uid://dtohbchdaimmh" path="res://Scenes/jugador.tscn" id="3_h7jpf"]
+
+[node name="Juego" type="Node2D" unique_id=1195737696]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1204849194]
+position = Vector2(129, 72)
+zoom = Vector2(4.5, 4.5)
+script = ExtResource("1_euybs")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1402224541]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 3201.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kbscr")
+stretch_mode = 2
+
+[node name="Jugador" parent="." unique_id=1102808260 instance=ExtResource("3_h7jpf")]
+position = Vector2(48, 80)
