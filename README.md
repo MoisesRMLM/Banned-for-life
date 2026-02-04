@@ -1,8 +1,8 @@
 # GDD: Banned-for-life
 
 ## Enlaces e información:
-    Enlace a Itch.io: 
-    Enlace a GitHub: 
+    Enlace a mi cuenta de Itch.io: https://moaises.itch.io/
+    Enlace a mi cuenta de GitHub: https://github.com/MoisesRMLM
 
 Nombre: Moisés Ruiz-Mateos López-Marrufo
 
