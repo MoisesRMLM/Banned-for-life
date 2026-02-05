@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d3h2djs5wse2x"]
+
+[ext_resource type="Script" uid="uid://cpxl88mjq5xi6" path="res://Scripts/disparo_companion.gd" id="1_lm4al"]
+[ext_resource type="Texture2D" uid="uid://cywrwik4i461c" path="res://Assets/Shoot_companion_anim.png" id="1_wr5hk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm4al"]
+size = Vector2(18, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oel3"]
+atlas = ExtResource("1_wr5hk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6q33"]
+atlas = ExtResource("1_wr5hk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk206"]
+atlas = ExtResource("1_wr5hk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gg44k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oel3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6q33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk206")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6q33")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="DisparoCompanion" type="Area2D" unique_id=815456425]
+top_level = true
+collision_mask = 4
+script = ExtResource("1_lm4al")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2059443939]
+shape = SubResource("RectangleShape2D_lm4al")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1579130020]
+sprite_frames = SubResource("SpriteFrames_gg44k")
+autoplay = "default"
+frame_progress = 0.8569781

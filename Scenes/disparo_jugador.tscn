@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c25rig3hqij4i" path="res://Assets/Shoot_manager_anim.png" id="1_oqg0i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqg0i"]
-size = Vector2(16, 9)
+size = Vector2(18, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iv2rb"]
 atlas = ExtResource("1_oqg0i")
@@ -41,6 +41,7 @@ animations = [{
 [node name="DisparoJugador" type="Area2D" unique_id=1634018311]
 top_level = true
 light_mask = 0
+collision_mask = 4
 script = ExtResource("1_h0piu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1512178827]
@@ -52,6 +53,6 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_u71ip")
 autoplay = "default"
 frame = 3
-frame_progress = 0.12065046
+frame_progress = 0.14978252
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
