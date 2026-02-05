@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ck1sgk47lvr8" path="res://Assets/Manager_anim1.png" id="1_5ydob"]
 [ext_resource type="Script" uid="uid://ds3hnms1fbhy0" path="res://Scripts/jugador.gd" id="1_c1mnh"]
 [ext_resource type="PackedScene" uid="uid://b5ni4kvl3q0hi" path="res://Scenes/companion_magenta.tscn" id="3_tn1hq"]
+[ext_resource type="PackedScene" uid="uid://d3s3ed5lw8cdr" path="res://Scenes/companion_blue.tscn" id="4_a0p7g"]
+[ext_resource type="PackedScene" uid="uid://cy62r7at2sy1n" path="res://Scenes/companion_green.tscn" id="5_n4xcq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nsjc"]
 atlas = ExtResource("1_5ydob")
@@ -118,19 +120,23 @@ debug_color = Color(0.88351303, 0.31464553, 0.30717278, 0.41960785)
 [node name="OrigenDisparo" type="Marker2D" parent="." unique_id=1033599875]
 unique_name_in_owner = true
 
+[node name="PosCompanionBlue" type="Marker2D" parent="OrigenDisparo" unique_id=245187031]
+unique_name_in_owner = true
+position = Vector2(15, 15)
+
+[node name="CompanionBlue" parent="OrigenDisparo/PosCompanionBlue" unique_id=396097710 instance=ExtResource("4_a0p7g")]
+
 [node name="PosCompanionMagenta" type="Marker2D" parent="OrigenDisparo" unique_id=185920336]
 unique_name_in_owner = true
 position = Vector2(20, 0)
 
 [node name="CompanionMagenta" parent="OrigenDisparo/PosCompanionMagenta" unique_id=281678950 instance=ExtResource("3_tn1hq")]
 
-[node name="PosCompanionBlue" type="Marker2D" parent="OrigenDisparo" unique_id=245187031]
-unique_name_in_owner = true
-position = Vector2(15, 15)
-
 [node name="PosCompanionGreen" type="Marker2D" parent="OrigenDisparo" unique_id=1647257014]
 unique_name_in_owner = true
 position = Vector2(15, -15)
+
+[node name="CompanionGreen" parent="OrigenDisparo/PosCompanionGreen" unique_id=263166091 instance=ExtResource("5_n4xcq")]
 
 [node name="Timer" type="Timer" parent="." unique_id=1747375725]
 unique_name_in_owner = true

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cy62r7at2sy1n"]
+
+[ext_resource type="Texture2D" uid="uid://d0dpi056pr337" path="res://Assets/Companions_anim.png" id="1_adcdh"]
+[ext_resource type="Script" uid="uid://rl5uxjx0t57k" path="res://Scripts/companion_green.gd" id="1_wy25a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy25a"]
+atlas = ExtResource("1_adcdh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f40w"]
+atlas = ExtResource("1_adcdh")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r46ej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy25a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f40w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xunvb"]
+radius = 8.0
+
+[node name="CompanionGreen" type="CharacterBody2D" unique_id=263166091]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_wy25a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1569990090]
+sprite_frames = SubResource("SpriteFrames_r46ej")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568066380]
+shape = SubResource("CircleShape2D_xunvb")
+
+[node name="OrigenDisparo" type="Marker2D" parent="." unique_id=1195918492]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1301633387]
+unique_name_in_owner = true
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

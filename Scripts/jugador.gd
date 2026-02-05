@@ -41,6 +41,7 @@ func _physics_process(delta):
 func disparar():
 	var nuevo_disparo = DISPARO.instantiate()
 	
+	# Disparo del personaje principal
 	nuevo_disparo.global_position = %OrigenDisparo.global_position
 	%OrigenDisparo.add_child(nuevo_disparo)
 
@@ -54,7 +55,7 @@ func formation():
 			%PosCompanionBlue.position.y = 15
 			
 			%PosCompanionGreen.position.x = 15
-			%PosCompanionGreen.position.y = 15
+			%PosCompanionGreen.position.y = -15
 			
 		# Formación 2: Retaguardia
 		1:
@@ -63,11 +64,11 @@ func formation():
 			
 			%PosCompanionBlue.position.x = -15
 			%PosCompanionBlue.position.y = 15
-			%PosCompanionMagenta.rotation_degrees = 180
+			%PosCompanionBlue.rotation_degrees = 180
 			
 			%PosCompanionGreen.position.x = -15
-			%PosCompanionGreen.position.y = 15
-			%PosCompanionMagenta.rotation_degrees = 180
+			%PosCompanionGreen.position.y = -15
+			%PosCompanionGreen.rotation_degrees = 180
 			
 		# Formación 3: Concentrado
 		2:
@@ -76,11 +77,11 @@ func formation():
 			
 			%PosCompanionBlue.position.x = 10
 			%PosCompanionBlue.position.y = 0
-			%PosCompanionMagenta.rotation_degrees = 0
+			%PosCompanionBlue.rotation_degrees = 0
 			
 			%PosCompanionGreen.position.x = 30
 			%PosCompanionGreen.position.y = 0
-			%PosCompanionMagenta.rotation_degrees = 0
+			%PosCompanionGreen.rotation_degrees = 0
 
 func _on_timer_timeout():
 	disparar()
