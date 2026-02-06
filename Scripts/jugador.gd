@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
+signal game_over
+
 const VELOCIDAD = 70
 const DISPARO = preload("res://Scenes/disparo_jugador.tscn")
+
+var vidas = 3
 var cont_formacion = 0
+var inmune = false
 
 func _physics_process(delta):
 	var direccion: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -11,7 +16,6 @@ func _physics_process(delta):
 	
 	if cont_formacion == 2:
 		velocity /= 1.75
-	
 	
 	if Input.is_action_pressed("slow"):
 		%AnimatedSprite2D.play("crouch")
@@ -37,6 +41,11 @@ func _physics_process(delta):
 			cont_formacion = 0
 		
 		formation()
+
+func _process(delta):
+	var hurtbox_overlap = %HurtboxContacto.get_overlapping_bodies()
+	if hurtbox_overlap.size() > 0:
+		impacto()
 
 func disparar():
 	var nuevo_disparo = DISPARO.instantiate()
@@ -83,5 +92,19 @@ func formation():
 			%PosCompanionGreen.position.y = 0
 			%PosCompanionGreen.rotation_degrees = 0
 
+func impacto():
+	if inmune == false:
+		vidas -= 1
+		
+		if vidas < 1:
+			game_over.emit()
+		else:
+			%Timer2.start()
+			
+			inmune = true
+
 func _on_timer_timeout():
 	disparar()
+
+func _on_timer_2_timeout():
+	inmune = false

@@ -40,6 +40,7 @@ animations = [{
 
 [node name="DisparoCompanion" type="Area2D" unique_id=815456425]
 top_level = true
+collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_lm4al")
 
@@ -50,3 +51,5 @@ shape = SubResource("RectangleShape2D_lm4al")
 sprite_frames = SubResource("SpriteFrames_gg44k")
 autoplay = "default"
 frame_progress = 0.8569781
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

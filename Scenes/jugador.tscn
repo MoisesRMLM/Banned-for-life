@@ -81,12 +81,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ydob"]
 radius = 2.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_c1mnh"]
-radius = 3.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4xcq"]
+radius = 4.0
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1102808260]
-collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_c1mnh")
@@ -111,11 +110,12 @@ color = Color(0.7236748, 0.2925014, 0.15038094, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=18500305]
 shape = SubResource("CircleShape2D_5ydob")
 
-[node name="Colision" type="Area2D" parent="." unique_id=682000855]
+[node name="HurtboxContacto" type="Area2D" parent="." unique_id=757220205]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colision" unique_id=674105788]
-shape = SubResource("CircleShape2D_c1mnh")
-debug_color = Color(0.88351303, 0.31464553, 0.30717278, 0.41960785)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxContacto" unique_id=565162995]
+shape = SubResource("CircleShape2D_n4xcq")
+debug_color = Color(0.8647123, 0.34465504, 0.25755426, 0.41960785)
 
 [node name="OrigenDisparo" type="Marker2D" parent="." unique_id=1033599875]
 unique_name_in_owner = true
@@ -143,4 +143,10 @@ unique_name_in_owner = true
 wait_time = 0.5
 autostart = true
 
+[node name="Timer2" type="Timer" parent="." unique_id=1262172953]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

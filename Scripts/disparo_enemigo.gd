@@ -1,9 +1,8 @@
 extends Area2D
 
-const VELOCIDAD = 300
-const MAX_DISTANCIA = 1000
+const VELOCIDAD = 75
+const MAX_DISTANCIA = 500
 
-var direccion = 0
 var distancia = 0
 
 func _physics_process(delta):

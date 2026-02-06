@@ -11,8 +11,6 @@ func _physics_process(delta):
 	distancia += VELOCIDAD*delta
 	if distancia > MAX_DISTANCIA:
 		queue_free()
-		
-
 
 func _on_body_entered(body: Node2D):
 	queue_free()

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cxcf674itg25g"]
+
+[ext_resource type="Texture2D" uid="uid://dfcoe4q08arn" path="res://Assets/Blob_blue.png" id="1_g6061"]
+[ext_resource type="Script" uid="uid://cejj6xp1vjrsx" path="res://Scripts/enemigo_blue.gd" id="1_wuuwb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wuuwb"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgpsd"]
+atlas = ExtResource("1_g6061")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymhce"]
+atlas = ExtResource("1_g6061")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tem61"]
+atlas = ExtResource("1_g6061")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhtsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgpsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymhce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgpsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tem61")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="EnemigoBlue" type="CharacterBody2D" unique_id=326105988]
+collision_layer = 6
+script = ExtResource("1_wuuwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1759458082]
+shape = SubResource("CircleShape2D_wuuwb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278214750]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_jhtsp")
+autoplay = "default"
+
+[node name="Rotater" type="Node2D" parent="." unique_id=2081909885]
+unique_name_in_owner = true
+
+[node name="EmpezarDisparar" type="Timer" parent="." unique_id=632505214]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[node name="Borrar" type="Timer" parent="." unique_id=1310943100]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="EmpezarDisparar" to="." method="_on_empezar_disparar_timeout"]
+[connection signal="timeout" from="Borrar" to="." method="_on_borrar_timeout"]
