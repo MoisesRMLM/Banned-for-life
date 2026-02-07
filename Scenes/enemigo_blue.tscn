@@ -60,7 +60,7 @@ autostart = true
 
 [node name="Borrar" type="Timer" parent="." unique_id=1310943100]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="EmpezarDisparar" to="." method="_on_empezar_disparar_timeout"]

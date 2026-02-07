@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal game_over
 
-const VELOCIDAD = 70
+const VELOCIDAD = 100
 const DISPARO = preload("res://Scenes/disparo_jugador.tscn")
 
 var vidas = 3

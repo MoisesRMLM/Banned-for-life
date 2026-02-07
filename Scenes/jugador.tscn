@@ -79,10 +79,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ydob"]
-radius = 2.0
+radius = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n4xcq"]
-radius = 4.0
+radius = 1.0
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1102808260]
 collision_mask = 3
@@ -100,14 +100,14 @@ frame_progress = 0.32788485
 
 [node name="MostrarColision" type="ColorRect" parent="." unique_id=480931710]
 unique_name_in_owner = true
-visible = false
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = 3.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
 color = Color(0.7236748, 0.2925014, 0.15038094, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=18500305]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_5ydob")
 
 [node name="HurtboxContacto" type="Area2D" parent="." unique_id=757220205]

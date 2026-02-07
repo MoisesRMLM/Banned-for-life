@@ -1,6 +1,6 @@
 extends Area2D
 
-const VELOCIDAD = 75
+const VELOCIDAD = 50
 const MAX_DISTANCIA = 500
 
 var distancia = 0
