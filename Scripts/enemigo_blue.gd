@@ -34,7 +34,7 @@ func eliminado():
 	global_position.y = 1250
 	%Borrar.start()
 
-func _on_empezar_disparar_timeout() -> void:
+func _on_empezar_disparar_timeout():
 	empezar_disparar = true
 
 func _on_borrar_timeout() -> void:

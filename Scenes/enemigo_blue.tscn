@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [node name="EnemigoBlue" type="CharacterBody2D" unique_id=326105988]
-collision_layer = 6
+collision_layer = 22
 script = ExtResource("1_wuuwb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1759458082]
@@ -55,6 +55,7 @@ unique_name_in_owner = true
 
 [node name="EmpezarDisparar" type="Timer" parent="." unique_id=632505214]
 unique_name_in_owner = true
+wait_time = 1.75
 one_shot = true
 autostart = true
 

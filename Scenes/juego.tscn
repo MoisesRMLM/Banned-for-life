@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dtohbchdaimmh" path="res://Scenes/jugador.tscn" id="3_h7jpf"]
 [ext_resource type="Texture2D" uid="uid://dhnwfjuds42" path="res://Assets/Tileset_Lvl1.png" id="4_l8qcm"]
 [ext_resource type="PackedScene" uid="uid://b075lpupsusib" path="res://Scenes/spawner_enemigo_1_1.tscn" id="4_pehpj"]
+[ext_resource type="PackedScene" uid="uid://dul6eu2iu2ao7" path="res://Scenes/spawner_enemigo_1_2.tscn" id="5_pehpj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pehpj"]
 texture = ExtResource("4_l8qcm")
@@ -69,3 +70,6 @@ script = ExtResource("1_euybs")
 
 [node name="SpawnerEnemigo1-1" parent="." unique_id=1892353435 instance=ExtResource("4_pehpj")]
 position = Vector2(368, 144)
+
+[node name="SpawnerEnemigo1-2" parent="." unique_id=2091576332 instance=ExtResource("5_pehpj")]
+position = Vector2(-112, 144)

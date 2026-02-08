@@ -21,7 +21,7 @@ func _physics_process(delta):
 		%AnimatedSprite2D.play("crouch")
 		%MostrarColision.visible = true
 		
-		velocity /= 2
+		velocity /= 1.5
 		
 	else:
 		%AnimatedSprite2D.play("default")
