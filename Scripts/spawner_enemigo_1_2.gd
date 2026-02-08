@@ -1,7 +1,7 @@
 extends Marker2D
 
 const VELOCIDAD = 75
-const MAX_MOVIMIENTO = 100
+const MAX_MOVIMIENTO = 125
 var movimiento = 0
 var direccion = 1
 

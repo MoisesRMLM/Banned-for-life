@@ -14,6 +14,8 @@ func disparar():
 	nuevo_disparo.global_position = %OrigenDisparo.global_position
 	nuevo_disparo.global_rotation = %OrigenDisparo.global_rotation
 	%OrigenDisparo.add_child(nuevo_disparo)
+	
+	%AudioStreamPlayer2.play()
 
 func _on_timer_timeout():
 	disparar()

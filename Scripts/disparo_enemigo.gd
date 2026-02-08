@@ -12,7 +12,7 @@ func _physics_process(delta):
 	if distancia > MAX_DISTANCIA:
 		queue_free()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D):
 	queue_free()
 	
 	if body.has_method("impacto"):

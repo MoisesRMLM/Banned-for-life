@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b5ni4kvl3q0hi" path="res://Scenes/companion_magenta.tscn" id="3_tn1hq"]
 [ext_resource type="PackedScene" uid="uid://d3s3ed5lw8cdr" path="res://Scenes/companion_blue.tscn" id="4_a0p7g"]
 [ext_resource type="PackedScene" uid="uid://cy62r7at2sy1n" path="res://Scenes/companion_green.tscn" id="5_n4xcq"]
+[ext_resource type="AudioStream" uid="uid://dpvf1285217ks" path="res://Assets/hit01.wav" id="6_iw3ti"]
+[ext_resource type="AudioStream" uid="uid://c5vb73l5jx6jg" path="res://Assets/Laser Shot.wav" id="7_5nsjc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nsjc"]
 atlas = ExtResource("1_5ydob")
@@ -59,8 +61,11 @@ animations = [{
 "speed": 3.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.75,
 "texture": SubResource("AtlasTexture_a0p7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1mnh")
 }],
 "loop": true,
 "name": &"hurt",
@@ -81,9 +86,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ydob"]
 radius = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n4xcq"]
-radius = 1.0
-
 [node name="Jugador" type="CharacterBody2D" unique_id=1102808260]
 collision_mask = 3
 platform_on_leave = 2
@@ -94,9 +96,7 @@ script = ExtResource("1_c1mnh")
 unique_name_in_owner = true
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_5nsjc")
-animation = &"crouch"
 autoplay = "default"
-frame_progress = 0.32788485
 
 [node name="MostrarColision" type="ColorRect" parent="." unique_id=480931710]
 unique_name_in_owner = true
@@ -109,13 +109,6 @@ color = Color(0.7236748, 0.2925014, 0.15038094, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=18500305]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_5ydob")
-
-[node name="HurtboxContacto" type="Area2D" parent="." unique_id=757220205]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxContacto" unique_id=565162995]
-shape = SubResource("CircleShape2D_n4xcq")
-debug_color = Color(0.8647123, 0.34465504, 0.25755426, 0.41960785)
 
 [node name="OrigenDisparo" type="Marker2D" parent="." unique_id=1033599875]
 unique_name_in_owner = true
@@ -147,6 +140,18 @@ autostart = true
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1612379391]
+unique_name_in_owner = true
+stream = ExtResource("6_iw3ti")
+volume_db = -10.0
+pitch_scale = 0.5
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=55921885]
+unique_name_in_owner = true
+stream = ExtResource("7_5nsjc")
+volume_db = -20.0
+pitch_scale = 0.75
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

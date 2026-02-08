@@ -2,7 +2,10 @@ extends CharacterBody2D
 
 const PROYECTIL = preload("res://Scenes/disparo_enemigo.tscn")
 const VEL_ROTACION = 0.4
-const MAX_PROYECTILES = 50
+const MAX_PROYECTILES = 30
+
+func _ready():
+	%Rotater.rotate(randf()*0.5)
 
 var hp = 3
 var empezar_disparar = false
@@ -27,6 +30,8 @@ func disparar():
 func impacto():
 	hp -= 1
 	
+	%AudioStreamPlayer.play()
+	
 	if hp <= 0:
 		eliminado()
 
@@ -37,5 +42,5 @@ func eliminado():
 func _on_empezar_disparar_timeout():
 	empezar_disparar = true
 
-func _on_borrar_timeout() -> void:
+func _on_borrar_timeout():
 	queue_free()

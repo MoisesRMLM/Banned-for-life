@@ -54,7 +54,7 @@ text = "JUGAR"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_ryjsk")
-text = "OPCIONES"
+text = "CONTROLES"
 
 [node name="BotonSalir" type="Button" parent="ColorRect/VBoxContainer" unique_id=2138667124]
 layout_mode = 2

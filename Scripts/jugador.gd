@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 signal game_over
+signal hit
 
-const VELOCIDAD = 100
+const VELOCIDAD = 125
 const DISPARO = preload("res://Scenes/disparo_jugador.tscn")
 
-var vidas = 3
+var vidas = 5
 var cont_formacion = 0
 var inmune = false
 
@@ -18,13 +19,20 @@ func _physics_process(delta):
 		velocity /= 1.75
 	
 	if Input.is_action_pressed("slow"):
-		%AnimatedSprite2D.play("crouch")
+		if !inmune:
+			%AnimatedSprite2D.play("crouch")
+		else:
+			%AnimatedSprite2D.play("hurt")
+		
 		%MostrarColision.visible = true
 		
-		velocity /= 1.5
+		velocity /= 2
 		
 	else:
-		%AnimatedSprite2D.play("default")
+		if !inmune:
+			%AnimatedSprite2D.play("default")
+		else:
+			%AnimatedSprite2D.play("hurt")
 		
 		%MostrarColision.visible = false
 	
@@ -42,17 +50,14 @@ func _physics_process(delta):
 		
 		formation()
 
-func _process(delta):
-	var hurtbox_overlap = %HurtboxContacto.get_overlapping_bodies()
-	if hurtbox_overlap.size() > 0:
-		impacto()
-
 func disparar():
 	var nuevo_disparo = DISPARO.instantiate()
 	
 	# Disparo del personaje principal
 	nuevo_disparo.global_position = %OrigenDisparo.global_position
 	%OrigenDisparo.add_child(nuevo_disparo)
+	
+	%AudioStreamPlayer2.play()
 
 func formation():
 	match cont_formacion:
@@ -94,14 +99,21 @@ func formation():
 
 func impacto():
 	if inmune == false:
+		
 		vidas -= 1
+		hit.emit()
 		
 		if vidas < 1:
+			%AnimatedSprite2D.play("hurt")
+			
 			game_over.emit()
 		else:
 			%Timer2.start()
 			
+			%AudioStreamPlayer.play()
+			
 			inmune = true
+
 
 func _on_timer_timeout():
 	disparar()

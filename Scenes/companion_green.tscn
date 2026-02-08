@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d0dpi056pr337" path="res://Assets/Companions_anim.png" id="1_adcdh"]
 [ext_resource type="Script" uid="uid://rl5uxjx0t57k" path="res://Scripts/companion_green.gd" id="1_wy25a"]
+[ext_resource type="AudioStream" uid="uid://c5vb73l5jx6jg" path="res://Assets/Laser Shot.wav" id="3_5f40w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy25a"]
 atlas = ExtResource("1_adcdh")
@@ -47,5 +48,11 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 wait_time = 0.3
 autostart = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=92058632]
+unique_name_in_owner = true
+stream = ExtResource("3_5f40w")
+volume_db = -20.0
+pitch_scale = 0.75
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

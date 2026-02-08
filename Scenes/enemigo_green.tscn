@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dht10tybo242t"]
+
+[ext_resource type="Script" uid="uid://de7cexr76jr2r" path="res://Scripts/enemigo_green.gd" id="1_pwxgf"]
+[ext_resource type="Texture2D" uid="uid://btqagsqrqecym" path="res://Assets/Blob_green.png" id="2_pwxgf"]
+[ext_resource type="AudioStream" uid="uid://dpvf1285217ks" path="res://Assets/hit01.wav" id="3_vs7cr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wuuwb"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs7cr"]
+atlas = ExtResource("2_pwxgf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnr6s"]
+atlas = ExtResource("2_pwxgf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jmtc"]
+atlas = ExtResource("2_pwxgf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jhtsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs7cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnr6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs7cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jmtc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="EnemigoGreen" type="CharacterBody2D" unique_id=326105988]
+collision_layer = 22
+script = ExtResource("1_pwxgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1759458082]
+shape = SubResource("CircleShape2D_wuuwb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278214750]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_jhtsp")
+autoplay = "default"
+
+[node name="Rotater" type="Node2D" parent="." unique_id=2081909885]
+unique_name_in_owner = true
+
+[node name="EmpezarDisparar" type="Timer" parent="." unique_id=632505214]
+unique_name_in_owner = true
+wait_time = 2.25
+one_shot = true
+autostart = true
+
+[node name="Borrar" type="Timer" parent="." unique_id=1310943100]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1909401489]
+unique_name_in_owner = true
+stream = ExtResource("3_vs7cr")
+volume_db = -20.0
+
+[connection signal="timeout" from="EmpezarDisparar" to="." method="_on_empezar_disparar_timeout"]
+[connection signal="timeout" from="Borrar" to="." method="_on_borrar_timeout"]

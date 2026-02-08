@@ -13,7 +13,7 @@ config_version=5
 config/name="Banned for life"
 run/main_scene="uid://dr2exdbp6ks0e"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cvk6u8x3hmko1"
 
 [display]
 

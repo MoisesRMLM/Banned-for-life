@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dul6eu2iu2ao7"]
 
 [ext_resource type="Script" uid="uid://df06atwp6olnj" path="res://Scripts/spawner_enemigo_1_2.gd" id="1_ajq4p"]
-[ext_resource type="PackedScene" uid="uid://cxcf674itg25g" path="res://Scenes/enemigo_blue.tscn" id="2_qxb3k"]
+[ext_resource type="PackedScene" uid="uid://dht10tybo242t" path="res://Scenes/enemigo_green.tscn" id="2_ajq4p"]
 
 [node name="SpawnerEnemigo1-2" type="Marker2D" unique_id=1892353435]
 script = ExtResource("1_ajq4p")
@@ -9,7 +9,7 @@ script = ExtResource("1_ajq4p")
 [node name="RefAltura" type="Marker2D" parent="." unique_id=2076850827]
 unique_name_in_owner = true
 
-[node name="EnemigoBlue" parent="RefAltura" unique_id=326105988 instance=ExtResource("2_qxb3k")]
+[node name="EnemigoGreen" parent="RefAltura" unique_id=326105988 instance=ExtResource("2_ajq4p")]
 
 [node name="Timer" type="Timer" parent="." unique_id=71671762]
 unique_name_in_owner = true
